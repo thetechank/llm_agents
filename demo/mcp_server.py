@@ -1,8 +1,13 @@
+import sys
+import asyncio
 from mcp.server.fastmcp import FastMCP
 
 mcp_server = FastMCP("FlightAI Demo")
 
+
 ticket_prices = {"london": "$799", "paris": "$899", "tokyo": "$1400", "berlin": "$499"}
+
+## Tool to get the ticket price in USD
 
 @mcp_server.tool()
 async def get_ticket_price(destination_city: str) -> str:
@@ -19,6 +24,8 @@ def _parse_usd(price_usd: str) -> float:
     s = s.replace("$", "").replace(",", "")
     return float(s)
 
+## Tool to convert a price in USD to EUR
+
 @mcp_server.tool()
 async def convert_usd_to_eur(price_usd: str, rate: float = 0.92) -> str:
     """
@@ -33,4 +40,5 @@ async def convert_usd_to_eur(price_usd: str, rate: float = 0.92) -> str:
         return "Unknown"
 
 if __name__ == "__main__":
+    print("MCP Server is running") 
     mcp_server.run(transport='stdio')
