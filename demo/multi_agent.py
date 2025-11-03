@@ -27,7 +27,7 @@ def make_trace_id(tag: str) -> str:
 
 load_dotenv(override=True)
 
-# We wil not use ourold way of adding history to the message.
+# We wil not use our old way of adding history to the message.
 
 # Session to store conversation history
 # we are using SQLite session here, but you can use InMemorySession or any other session

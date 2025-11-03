@@ -20,7 +20,7 @@ async def main():
     # Use async context manager to connect
     async with MCPServerStdio(
         params=server_params,
-        name="stdio-test",
+        name="FlightAITools",
         client_session_timeout_seconds=120,
     ) as mcp:
         print("✅ Connected to MCP server")
